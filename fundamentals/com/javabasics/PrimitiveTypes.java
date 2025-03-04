@@ -1,4 +1,4 @@
-public class Main {
+public class PrimitiveTypes {
   public static void main(String args[]) {
     byte age = 30;
     long viewsCount = 112_500_252L;
