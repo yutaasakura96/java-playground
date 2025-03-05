@@ -1,4 +1,4 @@
-package fundamentals.mortgagecalculator;
+package mortgage_calculator.src.mortgagecalculator;
 
 import java.text.NumberFormat;
 import java.util.Scanner;
@@ -42,4 +42,5 @@ public class MortgageCalculator {
     System.out.println("Mortgage: " + mortgageFormatted);
   }
 }
+
 
