@@ -1,3 +1,5 @@
+package javabasics;
+
 public class IfStatements {
   public static void main(String[] args) {
     int temperature = (int) (Math.random() * 45);

@@ -1,3 +1,5 @@
+package javabasics;
+
 public class Variables {
   public static void main(String args[]) {
     int myAge = 30;

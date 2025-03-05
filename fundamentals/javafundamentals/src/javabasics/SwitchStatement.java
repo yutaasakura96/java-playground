@@ -1,3 +1,5 @@
+package javabasics;
+
 public class SwitchStatement {
   public static void main(String[] args) {
     int day = (int)(Math.random() * 7) + 1;

@@ -1,3 +1,5 @@
+package javabasics;
+
 public class MathClass {
   public static void main(String[] args) {
     int x = 1;

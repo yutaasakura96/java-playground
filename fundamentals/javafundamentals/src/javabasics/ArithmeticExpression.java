@@ -1,3 +1,5 @@
+package javabasics;
+
 public class ArithmeticExpression {
   public static void main(String args[]) {
     int a = 10;

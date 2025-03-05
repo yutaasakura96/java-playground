@@ -1,3 +1,5 @@
+package javabasics;
+
 public class ForLoop {
   public static void main(String[] args) {
     System.out.println("Counting forward from 1 to 10");

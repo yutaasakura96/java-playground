@@ -1,3 +1,5 @@
+package javabasics;
+
 public class EscapeSequence {
   public static void main(String args[]) {
     String filepath = "c:\\Windows\\...";

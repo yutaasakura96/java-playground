@@ -1,3 +1,5 @@
+package javabasics;
+
 public class TernaryOperator {
   public static void main(String[] args) {
       long income = (long) Math.random() * 100_000;

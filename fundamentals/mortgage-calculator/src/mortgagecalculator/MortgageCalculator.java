@@ -1,4 +1,4 @@
-package mortgage_calculator.src.mortgagecalculator;
+package mortgagecalculator;
 
 import java.text.NumberFormat;
 import java.util.Scanner;

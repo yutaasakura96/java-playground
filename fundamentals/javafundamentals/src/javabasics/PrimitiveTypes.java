@@ -1,3 +1,5 @@
+package javabasics;
+
 public class PrimitiveTypes {
   public static void main(String args[]) {
     byte age = 30;
