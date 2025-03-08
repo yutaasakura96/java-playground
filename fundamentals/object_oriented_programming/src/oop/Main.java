@@ -8,6 +8,7 @@ public class Main {
     int wage = employee.calculateWage(10);
     int wage2 = employee2.calculateWage();
 
+    Employee.printNumberOfEmployees();
     System.out.println("Employee 1: " + wage);
     System.out.println("Employee 2: " + wage2);
   }
