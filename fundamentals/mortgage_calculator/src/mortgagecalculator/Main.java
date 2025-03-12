@@ -1,7 +1,5 @@
 package mortgagecalculator;
 
-import java.text.NumberFormat;
-
 public class Main {
 
   final static byte MONTHS_IN_YEAR = 12;
@@ -16,7 +14,9 @@ public class Main {
     annualInterest = (float) Console.readNumber("Annual Interest Rate: ", 1, 30);
     years = (byte) Console.readNumber("Period (Years): ", 1, 30);
 
-    MortgageReport.printMortgage(principal, annualInterest, years);
-    MortgageReport.printPaymentSchedule(principal, annualInterest, years);
+    var calculator = new MortgageCalculator(principal, annualInterest, years);
+    var report = new MortgageReport(calculator);
+    report.printMortgage();
+    report.printPaymentSchedule();
   }
 }
