@@ -2,6 +2,8 @@ package uicontrol;
 
 public class Main {
   public static void main(String[] args) {
-    System.out.println("This is the main class");
+    var control = new UIControl();
+    control.disable();
+    System.out.println(control.isEnabled());
   }
 }
