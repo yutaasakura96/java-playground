@@ -1,19 +1,16 @@
 package fundamentals.exceptions.src;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 
 public class ExceptionsDemo {
   public static void show() {
     try {
       var reader = new FileReader("file.txt");
-    } catch (FileNotFoundException e) {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
+      var value = reader.read();
+    } catch ( IOException ex) {
+      System.out.println("Cold not read data");
     }
   }
 
-  public static void sayHello(String name) {
-    System.out.println(name.toUpperCase());
-  }
 }
