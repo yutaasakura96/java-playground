@@ -1,27 +1,20 @@
 package fundamentals.exceptions.src;
 
-import java.io.FileReader;
 import java.io.IOException;
 
 public class ExceptionsDemo {
   public static void show() {
-    FileReader reader = null;
-
+    var account = new Account();
     try {
-      reader = new FileReader("file.txt");
-      var value = reader.read();
-
-    } catch (IOException ex) {
-      System.out.println("Cold not read data");
-    } finally {
-      if (reader != null) {
-        try {
-          reader.close();
-        } catch (IOException e) {
-          e.printStackTrace();
-        }
-      }
+      account.deposit(1);
+    } catch (IOException e) {
+      e.printStackTrace();
     }
   }
 
+  /**
+   * public static void show() { try (var reader = new FileReader("file.txt"); var writer = new
+   * FileWriter("...");) { var value = reader.read(); } catch (IOException ex) {
+   * System.out.println("Cold not read data"); } }
+   **/
 }
