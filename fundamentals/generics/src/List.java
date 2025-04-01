@@ -1,4 +1,4 @@
-package fundamentals.generics.src;
+package src;
 
 public class List {
   private Object[] items = new Object[10];
