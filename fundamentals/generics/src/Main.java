@@ -5,7 +5,7 @@ public class Main {
     var list = new GenericList<String>();
     list.add("a");
     list.add("b");
-    for (var item : list.items) {
+    for (var item : list) {
       System.out.println(item);
     }
   }
