@@ -1,18 +1,15 @@
 
 import java.util.List;
+import java.util.function.Consumer;
 
 public class LambdasDemo {
 
   public static void show() {
-    List<Integer> list = List.of(1,2,3);
+    List<String> list = List.of("a", "b", "c");
+    Consumer<String> print = item -> System.out.println(item);
+    Consumer<String> printUpperCase = item -> System.out.println(item.toUpperCase());
 
-    for (var item : list ) {
-      System.out.println(item);
-    }
-
-    list.forEach(item -> {
-      System.out.println(item);
-    });
+    list.forEach(print.andThen(printUpperCase).andThen(print));
   }
 
   public static void greet(Printer printer) {
