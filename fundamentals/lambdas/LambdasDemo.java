@@ -1,13 +1,13 @@
+
 import java.util.function.Function;
+
 public class LambdasDemo {
 
   public static void show() {
-    Function<String, Integer> map = str -> str.length();
-    var length = map.apply("Sky");
-    System.out.println(length);
-  }
+    Function<String, String> replaceColon = str -> str.replace(":", "=");
+    Function<String, String> addBraces = str -> "{" + str + "}";
 
-  public static void greet(Printer printer) {
-    printer.print("Hello World");
+    var result = replaceColon.andThen(addBraces).apply("ket:value");
+    System.out.println(result);
   }
 }
