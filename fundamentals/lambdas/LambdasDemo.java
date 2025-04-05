@@ -1,10 +1,18 @@
+
+import java.util.List;
+
 public class LambdasDemo {
-  public LambdasDemo(String message) {
-  }
 
   public static void show() {
-    greet(message -> new LambdasDemo(message));
-    greet(LambdasDemo::new);
+    List<Integer> list = List.of(1,2,3);
+
+    for (var item : list ) {
+      System.out.println(item);
+    }
+
+    list.forEach(item -> {
+      System.out.println(item);
+    });
   }
 
   public static void greet(Printer printer) {
