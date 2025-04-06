@@ -1,13 +1,12 @@
 
-import java.util.function.Function;
+import java.util.function.Predicate;
 
 public class LambdasDemo {
 
   public static void show() {
-    Function<String, String> replaceColon = str -> str.replace(":", "=");
-    Function<String, String> addBraces = str -> "{" + str + "}";
+    Predicate<String> isLongerThan5 = str -> str.length() > 5;
 
-    var result = replaceColon.andThen(addBraces).apply("ket:value");
+    var result = isLongerThan5.test("sky");
     System.out.println(result);
   }
 }
