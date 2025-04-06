@@ -4,9 +4,12 @@ import java.util.function.Predicate;
 public class LambdasDemo {
 
   public static void show() {
-    Predicate<String> isLongerThan5 = str -> str.length() > 5;
+    Predicate<String> hasLeftBrace = str -> str.startsWith("{");
+    Predicate<String> hasRightBrace = str -> str.endsWith("}");
 
-    var result = isLongerThan5.test("sky");
+    Predicate<String> hasLeftAndRightBraces = hasLeftBrace.and(hasRightBrace);
+
+    var result = hasLeftAndRightBraces.test("{key:value}");
     System.out.println(result);
   }
 }
