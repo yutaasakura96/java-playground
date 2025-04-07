@@ -1,15 +1,13 @@
 
-import java.util.function.Predicate;
+import java.util.function.BinaryOperator;
+import java.util.function.Function;
 
 public class LambdasDemo {
 
   public static void show() {
-    Predicate<String> hasLeftBrace = str -> str.startsWith("{");
-    Predicate<String> hasRightBrace = str -> str.endsWith("}");
-
-    Predicate<String> hasLeftAndRightBraces = hasLeftBrace.and(hasRightBrace);
-
-    var result = hasLeftAndRightBraces.test("{key:value}");
+    BinaryOperator<Integer> add = (a,b) -> a + b;
+    Function<Integer, Integer> square = a -> a * a;
+    var result = add.andThen(square).apply(1, 2);
     System.out.println(result);
   }
 }
