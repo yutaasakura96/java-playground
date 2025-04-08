@@ -1,10 +1,15 @@
 package fundamentals.streams;
 
-import java.util.stream.Stream;
+import java.util.List;
 
 public class StreamsDemo {
   public static void show() {
-   var stream = Stream.generate(() -> Math.random());
-   stream.limit(3).forEach(n -> System.out.println(n));
+    var movies = List.of(
+      new Movie("a", 10),
+      new Movie("b", 20),
+      new Movie("c", 30)
+    );
+
+    movies.stream().map(movie -> movie.getTitle()).forEach(name -> System.out.println(name));
   }
 }
