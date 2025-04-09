@@ -6,8 +6,15 @@ public class ThreadsDemo {
     var thread1 = new Thread(new DownloadFileTask(status));
     var thread2 = new Thread(() -> {
       while (!status.isDone()) {
-        System.out.println(status.getTotalBytes());
+        synchronized (status) {
+          try {
+            status.wait();
+          } catch (InterruptedException e) {
+            e.printStackTrace();
+          }
+        }
       }
+      System.out.println(status.getTotalBytes());
     });
 
     thread1.start();
