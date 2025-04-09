@@ -1,16 +1,28 @@
 package fundamentals.concurrency;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ThreadsDemo {
   public static void show() {
-    Thread thread = new Thread(new DownloadFileTask());
-    thread.start();
+    var status = new DownloadStatus();
 
-    try {
-      thread.sleep(1000);
-    } catch (InterruptedException e) {
-      e.printStackTrace();
+    List<Thread> threads = new ArrayList<>();
+
+    for (var i = 0; i < 10; i++) {
+      var thread = new Thread(new DownloadFileTask(status));
+      thread.start();
+      threads.add(thread);
     }
 
-    thread.interrupt();
+    for (var thread : threads) {
+      try {
+        thread.join();
+      } catch (InterruptedException e) {
+        e.printStackTrace();
+      }
+    }
+
+    System.out.println(status.getTotalBytes());
   }
 }
