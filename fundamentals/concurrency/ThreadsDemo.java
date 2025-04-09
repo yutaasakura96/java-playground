@@ -24,7 +24,7 @@ public class ThreadsDemo {
       }
     }
 
-    Integer totalBytes = tasks.stream().map(t -> t.getStatus().getTotalBytes()).reduce(0, Integer::sum);
+    var totalBytes = tasks.stream().map(t -> t.getStatus().getTotalBytes()).reduce(Integer::sum);
 
     System.out.println(totalBytes);
   }
