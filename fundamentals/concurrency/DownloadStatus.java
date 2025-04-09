@@ -1,22 +1,21 @@
 package fundamentals.concurrency;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class DownloadStatus {
-  private volatile boolean isDone;
-  private int totalBytes;
+  private boolean isDone;
+  private AtomicInteger totalBytes = new AtomicInteger();
   private int totalFiles;
-  private Object totalBytesLock = new Object();
 
   public int getTotalBytes() {
-    return totalBytes;
+    return totalBytes.get();
   }
 
   public void incrementTotalbytes() {
-    synchronized (totalBytesLock) {
-      totalBytes++;
-    }
+    totalBytes.incrementAndGet();
   }
 
-  public synchronized void incrementTotalFiles() {
+  public void incrementTotalFiles() {
     totalFiles++;
   }
 
