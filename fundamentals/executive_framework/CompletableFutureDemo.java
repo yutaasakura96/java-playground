@@ -3,15 +3,15 @@ package fundamentals.executive_framework;
 import java.util.concurrent.CompletableFuture;
 
 public class CompletableFutureDemo {
-  public static CompletableFuture<String> getUserEmailAsync() {
-    return CompletableFuture.supplyAsync(() -> "email");
-  }
-
-  public static CompletableFuture<String> getPlaylistAsync(String email) {
-    return CompletableFuture.supplyAsync(() -> "playlist");
-  }
-
   public static void show() {
-    getUserEmailAsync().thenCompose(CompletableFutureDemo::getPlaylistAsync).thenAccept(playlist -> System.out.println(playlist));
+    var first = CompletableFuture.supplyAsync(() -> "20USD")
+    .thenApply(str -> {
+      var price = str.replace("USD", "");
+      return Integer.parseInt(price);
+    });
+    var second = CompletableFuture.supplyAsync(() -> 0.9);
+
+    first.thenCombine(second, (price, exchangeRate) -> price * exchangeRate)
+      .thenAccept(result -> System.out.println(result));
   }
 }
