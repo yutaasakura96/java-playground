@@ -18,6 +18,8 @@ public class ExecutorsDemo {
       System.out.println(result);
     } catch (InterruptedException | ExecutionException e) {
       e.printStackTrace();
+    } finally {
+      executor.shutdown();
     }
   }
 }
