@@ -16,6 +16,5 @@ public class ExecutorsDemo {
     } catch (ExecutionException e) {
       e.printStackTrace();
     }
-
   }
 }
