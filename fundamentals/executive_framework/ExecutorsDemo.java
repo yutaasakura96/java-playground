@@ -1,5 +1,6 @@
 package fundamentals.executive_framework;
 
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executors;
 
 public class ExecutorsDemo {
@@ -7,11 +8,16 @@ public class ExecutorsDemo {
     var executor = Executors.newFixedThreadPool(2);
 
     try {
-      executor.submit(() -> {
-        System.out.println(Thread.currentThread().getName());
+      var future = executor.submit(() -> {
+        LongTask.simulate();
+        return 1;
       });
-    } finally {
-      executor.shutdown();
+
+      System.out.println("Do more work");
+      var result = future.get();
+      System.out.println(result);
+    } catch (InterruptedException | ExecutionException e) {
+      e.printStackTrace();
     }
   }
 }
