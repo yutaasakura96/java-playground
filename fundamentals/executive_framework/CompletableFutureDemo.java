@@ -13,7 +13,7 @@ public class CompletableFutureDemo {
       return 20;
     });
 
-    var fastest = CompletableFuture.anyOf(first, second)
+    CompletableFuture.anyOf(first, second)
       .thenAccept(temp -> System.out.println(temp));
   };
 }
