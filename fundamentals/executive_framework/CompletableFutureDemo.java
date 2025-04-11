@@ -3,12 +3,15 @@ package fundamentals.executive_framework;
 import java.util.concurrent.CompletableFuture;
 
 public class CompletableFutureDemo {
-  public static int toFarenheit(int celsius) {
-    return (int) ((celsius * 1.8) + 32);
+  public static CompletableFuture<String> getUserEmailAsync() {
+    return CompletableFuture.supplyAsync(() -> "email");
+  }
+
+  public static CompletableFuture<String> getPlaylistAsync(String email) {
+    return CompletableFuture.supplyAsync(() -> "playlist");
   }
 
   public static void show() {
-    var future = CompletableFuture.supplyAsync(() -> 20);
-    future.thenApply(CompletableFutureDemo::toFarenheit).thenAccept(f -> System.out.println(f));
+    getUserEmailAsync().thenCompose(CompletableFutureDemo::getPlaylistAsync).thenAccept(playlist -> System.out.println(playlist));
   }
 }
